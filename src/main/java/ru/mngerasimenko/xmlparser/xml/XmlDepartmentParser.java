@@ -55,7 +55,7 @@ public class XmlDepartmentParser {
 			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 				DepartmentTo department = getDepartment(nNode);
 				if (department != null) {
-					logger.info("Created node from xmp: {}", department);
+					logger.debug("Found department node: {}", department);
 					if (departments.contains(department)) {
 						logger.error("Dublicate department {}", department);
 					} else {

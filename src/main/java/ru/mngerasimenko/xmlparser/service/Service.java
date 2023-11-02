@@ -54,16 +54,18 @@ public class Service {
 	}
 
 	public void sync(ToDataSource toDataSource) {
-		logger.debug("Synchronization...");
+		logger.info("Synchronization...");
 		List<Department> departmentsDb = getAll();
 		for (Department department : departmentsDb) {
 			if (toDataSource.isNotContainsDepartment(department)) {
 				delete(department.getId());
+				logger.info("Deleted department {}", department);
 			} else {
 				DepartmentTo departmentTo = toDataSource.getIfNotEquals(department);
 				if (departmentTo != null) {
 					department.setDescription(departmentTo.getDescription());
 					update(department);
+					logger.info("Updated department {}", department);
 				}
 				toDataSource.remove(department);
 			}
@@ -73,6 +75,7 @@ public class Service {
 			toDataSource.getDepartmentTos().stream()
 					.map(Department::new)
 					.forEach(this::create);
+			logger.info("Added {} new departments", toDataSource.getDepartmentTos().size());
 		}
 	}
 }
