@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Departments>
+    <Department>
+        <DepCode>2</DepCode>
+        <DepJob>Sale</DepJob>
+        <Description>sale department</Description>
+    </Department>
+    <Department>
+        <DepCode>2</DepCode>
+        <DepJob>Customer service</DepJob>
+        <Description>сustomer service department</Description>
+    </Department>
+    <Department>
+        <DepCode>1</DepCode>
+        <DepJob>It</DepJob>
+        <Description>it department</Description>
+    </Department>
+</Departments>
